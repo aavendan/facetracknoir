@@ -82,7 +82,7 @@
              <x>0</x>
              <y>0</y>
              <width>469</width>
-             <height>445</height>
+             <height>470</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -94,13 +94,13 @@
            <property name="minimumSize">
             <size>
              <width>469</width>
-             <height>445</height>
+             <height>470</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>469</width>
-             <height>445</height>
+             <height>470</height>
             </size>
            </property>
            <property name="maxInputEGU" stdset="0">
@@ -147,7 +147,7 @@
              <x>0</x>
              <y>0</y>
              <width>469</width>
-             <height>445</height>
+             <height>470</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -159,13 +159,13 @@
            <property name="minimumSize">
             <size>
              <width>469</width>
-             <height>445</height>
+             <height>470</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>469</width>
-             <height>445</height>
+             <height>470</height>
             </size>
            </property>
            <property name="maxInputEGU" stdset="0">
@@ -227,14 +227,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="btnOk">
        <property name="text">
         <string>OK</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnOk">
+      <widget class="QPushButton" name="btnCancel">
        <property name="text">
         <string>Cancel</string>
        </property>
