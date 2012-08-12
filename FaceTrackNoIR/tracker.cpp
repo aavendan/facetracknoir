@@ -507,7 +507,7 @@ T6DOF gameoutput_camera(0,0,0,0,0,0);
 				output_camera.position.x = X.invert * X.curvePtr->getValue(new_camera.position.x);
 				output_camera.position.y = Y.invert * Y.curvePtr->getValue(new_camera.position.y);
 				output_camera.position.z = Z.invert * Z.curvePtr->getValue(new_camera.position.z);
-				int altp = new_camera.position.pitch * Pitch.invert < 0;
+				int altp = new_camera.position.pitch < 0;
 				output_camera.position.pitch = Pitch.invert * (altp ? Pitch.curvePtrAlt : Pitch.curvePtr)->getValue(new_camera.position.pitch);
 				output_camera.position.yaw = Yaw.invert * Yaw.curvePtr->getValue(new_camera.position.yaw);
 				output_camera.position.roll = Roll.invert * Roll.curvePtr->getValue(new_camera.position.roll);
