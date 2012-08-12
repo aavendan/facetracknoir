@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>901</width>
-    <height>824</height>
+    <width>993</width>
+    <height>751</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>FaceTrackNoIR tracking curves</string>
@@ -112,12 +118,12 @@ color: rgb(255, 255, 255);
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>794</width>
-           <height>488</height>
+           <width>956</width>
+           <height>656</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="1">
+          <item row="1" column="1">
            <widget class="QFunctionConfigurator" name="qFunctionPitch">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -127,18 +133,21 @@ color: rgb(255, 255, 255);
             </property>
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>260</width>
-              <height>500</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maxOutputEGU" stdset="0">
-             <number>90</number>
+             <number>180</number>
+            </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
              <number>2</number>
@@ -165,7 +174,7 @@ color: rgb(255, 255, 255);
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
+          <item row="1" column="2">
            <widget class="QFunctionConfigurator" name="qFunctionRoll">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -175,18 +184,21 @@ color: rgb(255, 255, 255);
             </property>
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>264</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>260</width>
-              <height>500</height>
+              <width>264</width>
+              <height>384</height>
              </size>
             </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>4</number>
+            </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>1</number>
+             <number>2</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -210,7 +222,7 @@ color: rgb(255, 255, 255);
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
+          <item row="1" column="0">
            <widget class="QFunctionConfigurator" name="qFunctionYaw">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -220,18 +232,21 @@ color: rgb(255, 255, 255);
             </property>
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>400</width>
-              <height>500</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>5</number>
+            </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>1</number>
+             <number>2</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -255,7 +270,7 @@ color: rgb(255, 255, 255);
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="2" column="1">
            <widget class="QFunctionConfigurator" name="qFunctionPitchDown">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -265,18 +280,21 @@ color: rgb(255, 255, 255);
             </property>
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>204</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>260</width>
-              <height>500</height>
+              <width>314</width>
+              <height>204</height>
              </size>
             </property>
             <property name="maxOutputEGU" stdset="0">
              <number>90</number>
+            </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
              <number>2</number>
@@ -303,7 +321,7 @@ color: rgb(255, 255, 255);
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="0" column="1">
            <widget class="QLabel" name="label_9">
             <property name="maximumSize">
              <size>
@@ -319,7 +337,7 @@ color: rgb(255, 255, 255);
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
+          <item row="2" column="0">
            <widget class="QWidget" name="widget_3" native="true">
             <property name="minimumSize">
              <size>
@@ -348,8 +366,8 @@ color: rgb(255, 255, 255);
           <rect>
            <x>30</x>
            <y>10</y>
-           <width>794</width>
-           <height>390</height>
+           <width>956</width>
+           <height>721</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
@@ -357,15 +375,21 @@ color: rgb(255, 255, 255);
            <widget class="QFunctionConfigurator" name="qFunctionX">
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
+            </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>5</number>
+            </property>
+            <property name="pixPerEGU_Output" stdset="0">
+             <number>2</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -393,15 +417,21 @@ color: rgb(255, 255, 255);
            <widget class="QFunctionConfigurator" name="qFunctionY">
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
+            </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>5</number>
+            </property>
+            <property name="pixPerEGU_Output" stdset="0">
+             <number>2</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -429,15 +459,21 @@ color: rgb(255, 255, 255);
            <widget class="QFunctionConfigurator" name="qFunctionZ">
             <property name="minimumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>260</width>
-              <height>240</height>
+              <width>314</width>
+              <height>384</height>
              </size>
+            </property>
+            <property name="pixPerEGU_Input" stdset="0">
+             <number>5</number>
+            </property>
+            <property name="pixPerEGU_Output" stdset="0">
+             <number>2</number>
             </property>
             <property name="colorBezier">
              <color>

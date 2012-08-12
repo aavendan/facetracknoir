@@ -74,7 +74,7 @@ QFunctionConfigurator::QFunctionConfigurator(QWidget *parent)
 
     setMouseTracking(true);
     moving = 0;						// Pointer to the curve-point, that's being moved
-	movingPoint = 0;				// Index of that same point
+	movingPoint = -1;				// Index of that same point
 
 	//
 	// Add a Reset-button
@@ -172,36 +172,26 @@ QRect scale;
 
     QPen pen(QColor(55, 104, 170, 127), 1, Qt::SolidLine);
 
-	//
-	// Draw the Caption
-	//
-	if (_config) {
-		strCaption = _config->getTitle();
-	}
-
 	scale.setCoords(range.left(), 0, range.right(), 20);
-	painter.drawText(scale, Qt::AlignCenter, strCaption);
 
 	//
 	// Draw the horizontal guidelines
 	//
-	for (i = range.bottom(); i >= range.top(); i -= 10 * pPerEGU_Output) {
+	for (i = range.bottom(); i >= range.top(); i -= max(1, maxOutputEGU() / 5) * pPerEGU_Output) {
 		drawLine(&painter, QPointF(40, i), QPointF(range.right(), i), pen);
 		scale.setCoords(0, i - 5, range.left() - 5, i + 5);
 		painter.drawText(scale, Qt::AlignRight, tr("%1").arg(((range.bottom() - i))/pPerEGU_Output));
 	}
 
+	drawLine(&painter, QPointF(40, range.top()), QPointF(range.right(), range.top()), pen);
+
 	//
 	// Draw the vertical guidelines
 	//
-	bool bSkipText = true;
-	for (i = range.left() + 20; i <= range.right(); i += 5 * pPerEGU_Input) {
+	for (i = range.left(); i <= range.right(); i += max(1, maxInputEGU() / 10) * pPerEGU_Input) {
 		drawLine(&painter, QPointF(i, range.top()), QPointF(i, range.bottom()), pen);
 		scale.setCoords(i - 10, range.bottom() + 2, i + 10, range.bottom() + 15);
-		if (!bSkipText) {
-			painter.drawText(scale, Qt::AlignCenter, tr("%1").arg(abs(((range.left() - i))/pPerEGU_Input)));
-		}
-		bSkipText = !bSkipText;				// Don't add the scale to each vertical line.
+		painter.drawText(scale, Qt::AlignCenter, tr("%1").arg((int) abs(((range.left() - i))/pPerEGU_Input)));
 	}
 
 	scale.setCoords(range.left(), range.bottom() + 20, range.right(), range.bottom() + 35);
@@ -232,14 +222,13 @@ QRect scale;
 //
 void QFunctionConfigurator::drawFunction(const QRectF &fullRect)
 {
-int i;
-QPointF prevPoint;
-QPointF currentPoint;
-
-	//
 	// Use the background picture to draw on.
 	// ToDo: find out how to add Pixmaps, without getting it all green...
 	//
+
+	if (!_config)
+		return;
+
 	_function = QPixmap(_background);
 	QPainter painter(&_function);
 
@@ -248,13 +237,15 @@ QPointF currentPoint;
 
 	QPen pen(colBezier, 2, Qt::SolidLine);
 
-	prevPoint = graphicalizePoint( QPointF(0,0) );			// Start at the Axis
-	for (i = 0; i < _draw_points.size(); i++) {
-		currentPoint = _draw_points[i];
-		drawLine(&painter, prevPoint, currentPoint, pen);
-		prevPoint = currentPoint;
+	double max = maxInputEGU();
+	QPointF prev = graphicalizePoint(QPointF(0, 0));
+	double step = 1 / (double) pixPerEGU_Input();
+	for (double i = 0; i < max; i += step) {
+		double val = _config->getValue(i);
+		QPointF cur = graphicalizePoint(QPointF(i, val));
+		drawLine(&painter, prev, cur, pen);
+		prev = cur;
 	}
-
 	painter.restore();
 }
 
@@ -413,9 +404,10 @@ void QFunctionConfigurator::mousePressEvent(QMouseEvent *e)
 			//
 			if (!bTouchingPoint) {
 				if (withinRect(e->pos(), range)) {
-					_config->addPoint(normalizePoint(e->pos()));
+					QPointF newpt = normalizePoint(e->pos());
+					_config->addPoint(newpt);
 					setConfig(_config);
-					moving = 0;
+					moving = NULL;
 					emit CurveChanged( true );
 				}
 			}
@@ -500,7 +492,7 @@ void QFunctionConfigurator::mouseMoveEvent(QMouseEvent *e)
 	}
 }
 
-void QFunctionConfigurator::mouseReleaseEvent(QMouseEvent *)
+void QFunctionConfigurator::mouseReleaseEvent(QMouseEvent *e)
 {
     //qDebug()<<"releasing";
 	if (moving > 0) {
@@ -511,7 +503,7 @@ void QFunctionConfigurator::mouseReleaseEvent(QMouseEvent *)
 		//
 		WaitForSingleObject(_mutex, INFINITE);
 		if (_config) {
-			_config->movePoint(movingPoint, _points[movingPoint]);
+			_config->movePoint(movingPoint, normalizePoint(e->pos()));
 			setConfig(_config);
 		}
 		ReleaseMutex(_mutex);
@@ -519,7 +511,7 @@ void QFunctionConfigurator::mouseReleaseEvent(QMouseEvent *)
 	}
 	setCursor(Qt::ArrowCursor);		
 	moving = 0;
-    movingPoint = 0;
+    movingPoint = -1;
 }
 
 //
@@ -559,6 +551,16 @@ QPointF norm;
 	norm.setX( (point.x() - range.left()) / pPerEGU_Input );
 	norm.setY( (range.bottom() - point.y()) / pPerEGU_Output );
 
+	if (norm.x() > maxInputEGU())
+		norm.setX(maxInputEGU());
+	else if (norm.x() < 0)
+		norm.setX(0);
+
+	if (norm.y() > maxOutputEGU())
+		norm.setY(maxOutputEGU());
+	else if (norm.y() < 0)
+		norm.setY(0);
+
 	return norm;
 }
 
@@ -578,15 +580,15 @@ QPointF graph;
 void QFunctionConfigurator::setmaxInputEGU(int value)
 {
     MaxInput = value;
-	setMinimumWidth(MaxInput * pPerEGU_Input + 55);
-	setMaximumWidth(MaxInput * pPerEGU_Input + 55);
+	setMinimumWidth(MaxInput * pPerEGU_Input + 64);
+	setMaximumWidth(MaxInput * pPerEGU_Input + 64);
     update();
 }
 void QFunctionConfigurator::setmaxOutputEGU(int value)
 {
     MaxOutput = value;
-	setMinimumHeight(MaxOutput * pPerEGU_Output + 55);
-	setMaximumHeight(MaxOutput * pPerEGU_Output + 55);
+	setMinimumHeight(MaxOutput * pPerEGU_Output + 30);
+	setMaximumHeight(MaxOutput * pPerEGU_Output + 30);
     update();
 }
 
@@ -596,8 +598,8 @@ void QFunctionConfigurator::setmaxOutputEGU(int value)
 void QFunctionConfigurator::setpixPerEGU_Input(int value)
 {
     pPerEGU_Input = value;
-	setMinimumHeight(MaxInput * pPerEGU_Input + 55);
-	setMaximumHeight(MaxInput * pPerEGU_Input + 55);
+	setMinimumWidth(MaxInput * pPerEGU_Input + 64);
+	setMaximumWidth(MaxInput * pPerEGU_Input + 64);
     update();
 }
 
@@ -607,8 +609,8 @@ void QFunctionConfigurator::setpixPerEGU_Input(int value)
 void QFunctionConfigurator::setpixPerEGU_Output(int value)
 {
     pPerEGU_Output = value;
-	setMinimumWidth(MaxOutput * pPerEGU_Output + 55);
-	setMaximumWidth(MaxOutput * pPerEGU_Output + 55);
+	setMinimumHeight(MaxOutput * pPerEGU_Output + 55);
+	setMaximumHeight(MaxOutput * pPerEGU_Output + 55);
     update();
 }
 
@@ -633,14 +635,9 @@ void QFunctionConfigurator::setOutputEGU(QString egu)
     strOutputEGU = egu;
     update();
 }
-void QFunctionConfigurator::setCaption(QString cap)
-{
-    strCaption = cap;
-    update();
-}
 
 void QFunctionConfigurator::resizeEvent(QResizeEvent *e)
 {
     QSize s = e->size();
-	range = QRectF(40, 20, MaxInput * pPerEGU_Input, MaxOutput * pPerEGU_Output);
+	range = QRectF(40, 12, MaxInput * pPerEGU_Input, MaxOutput * pPerEGU_Output);
 }

@@ -53,12 +53,12 @@ class QDESIGNER_WIDGET_EXPORT QFunctionConfigurator : public QWidget
     Q_PROPERTY(int maxInputEGU READ maxInputEGU WRITE setmaxInputEGU);
     Q_PROPERTY(int maxOutputEGU READ maxOutputEGU WRITE setmaxOutputEGU);
     Q_PROPERTY(int pixPerEGU_Input READ pixPerEGU_Input WRITE setpixPerEGU_Input);
+    Q_PROPERTY(int pixPerEGU_Output READ pixPerEGU_Output WRITE setpixPerEGU_Output);
 
 	Q_PROPERTY(QColor colorBezier READ colorBezier WRITE setColorBezier);
     Q_PROPERTY(QColor colorBackground READ colorBackground WRITE setColorBackground);
     Q_PROPERTY(QString stringInputEGU READ stringInputEGU WRITE setInputEGU);
     Q_PROPERTY(QString stringOutputEGU READ stringOutputEGU WRITE setOutputEGU);
-    Q_PROPERTY(QString stringCaption READ stringCaption WRITE setCaption);
 
 	// Return the current value to Designer
 	int maxInputEGU() const
@@ -98,11 +98,6 @@ class QDESIGNER_WIDGET_EXPORT QFunctionConfigurator : public QWidget
     {
         return strOutputEGU;
     }
-	// Return the current string to Designer
-	QString stringCaption() const
-    {
-        return strCaption;
-    }
 
 public:
 	QFunctionConfigurator(QWidget *parent = 0);
@@ -126,7 +121,6 @@ public slots:
     void setColorBackground(QColor);
     void setInputEGU(QString);
     void setOutputEGU(QString);
-    void setCaption(QString);
 
 	void resetCurve() {
 		QSettings iniFile( strSettingsFile, QSettings::IniFormat );		// Application settings (in INI-file)
@@ -169,7 +163,6 @@ private:
 	QColor colBackground;			// Color of widget background
 	QString strInputEGU;			// Engineering Units input (vertical axis)
 	QString strOutputEGU;			// Engineering Units output (horizontal axis)
-	QString strCaption;				// Caption of the graph
 	QString strSettingsFile;		// Name of last read INI-file
 	QPushButton *btnReset;			// Reset Curve
 

@@ -17,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)\bin\"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			>
@@ -84,7 +84,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="postbuild.bat &quot;$(OutDir)&quot; &quot;$(QTDIR)\plugins\designer&quot; $(ConfigurationName) &quot;D:\Project\FaceTrackNoIR\VS2005\FaceTrackNoIR\bin&quot;"
+				CommandLine=""
 			/>
 		</Configuration>
 		<Configuration
@@ -317,10 +317,6 @@
 			ParseFiles="false"
 			>
 		</Filter>
-		<File
-			RelativePath=".\postbuild.bat"
-			>
-		</File>
 	</Files>
 	<Globals>
 		<Global
