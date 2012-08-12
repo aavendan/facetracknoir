@@ -84,16 +84,10 @@ void FTNoIR_Filter::FilterHeadPoseData(THeadPoseData *current_camera_position, T
 
 	for (i=0;i<6;i++)
 	{
-		volatile double bleh;
-
-		bleh = target[i];
-
-		if (bleh != bleh)
+		if (_isnan(target[i]))
 			return;
 
-		bleh = prev_output[i];
-
-		if (bleh != bleh)
+		if (_isnan(prev_output[i]))
 			return;
 
 		double e2 = target[i];
@@ -101,24 +95,33 @@ void FTNoIR_Filter::FilterHeadPoseData(THeadPoseData *current_camera_position, T
 		double vec = e2 - start;
 		int sign = vec < 0 ? -1 : 1;
 		double x = fabs(vec);
-		double foo = (i >= 3 ? functionConfig : translationFunctionConfig).getValue((x > 4 ? 4 : x));
-		if (x > 4)
-			foo = x * x * log(x) / log(4.0);
+		QList<QPointF> points = (i >= 3 ? functionConfig : translationFunctionConfig).getPoints();
+		int extrapolatep = 0;
+		double ratio, maxx, add;
+		// extrapolation of the spline using the last 2 control points,
+		// as a linear function
+		if (points.size() > 1) {
+			QPointF last = points[points.size() - 1];
+			QPointF penultimate = points[points.size() - 2];
+			ratio = (last.y() - penultimate.y()) / (last.x() - penultimate.x());
+			extrapolatep = 1;
+			add = last.y();
+			maxx = last.x();
+		}
+		double foo = extrapolatep && x > maxx ? add + ratio * (x - maxx) : (i >= 3 ? functionConfig : translationFunctionConfig).getValue(x);
 		// the idea is that "empty" updates without new head pose data are still
 		// useful for filtering, as skipping them would result in jerky output.
 		// the magic "100" is the amount of calls to the filter by FTNOIR per sec.
 		double velocity = foo / 100.0;
 		double sum = start + velocity * sign;
-		bool done = /*x >= 6 || */(sign > 0 ? sum >= e2 : sum <= e2);
+		bool done = sign > 0 ? sum >= e2 : sum <= e2;
 		if (done) {
 			output[i] = e2;
 		} else {
 			output[i] = sum;
 		}
 
-		bleh = output[i];
-
-		if (bleh != bleh)
+		if (_isnan(output[i]))
 			return;
 	}
 
