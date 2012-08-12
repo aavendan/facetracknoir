@@ -27,6 +27,10 @@
 #ifndef __TRACKER_H__
 #define __TRACKER_H__
 
+#include <windows.h>
+#define DIRECTINPUT_VERSION 0x0800
+#include <Dinput.h>
+
 #include <QThread>
 #include <QMessageBox>
 #include <QLineEdit>
@@ -36,12 +40,9 @@
 #include <QList>
 #include <QPainterPath>
 
-#define DIRECTINPUT_VERSION 0x0800
-#include <Dinput.h>
-
 #include "ExcelServer.h"			// Excel-server (for analysing purposes)
 #include "FTNoIR_cxx_protocolserver.h"
-#include "FunctionConfig.h"
+#include <QFunctionConfigurator.h>
 
 #include "..\ftnoir_tracker_base\FTNoIR_Tracker_base.h"
 #include "..\ftnoir_protocol_base\FTNoIR_Protocol_base.h"
@@ -105,10 +106,10 @@ public:
 		QString currentFile = settings.value ( "SettingsFile", QCoreApplication::applicationDirPath() + "/Settings/default.ini" ).toString();
 		QSettings iniFile( currentFile, QSettings::IniFormat );								// Application settings (in INI-file)
 
-		curvePtr = new FunctionConfig(primary, maxInput, maxOutput);						// Create the Function-config for input-output translation
+		curvePtr = new FunctionConfig(primary);						// Create the Function-config for input-output translation
 		curvePtr->loadSettings(iniFile);													// Load the settings from the INI-file
 		if (secondary != "") {
-			curvePtrAlt = new FunctionConfig(secondary, maxInput, maxOutput);
+			curvePtrAlt = new FunctionConfig(secondary);
 			curvePtrAlt->loadSettings(iniFile);
 		}
 

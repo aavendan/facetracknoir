@@ -263,7 +263,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\images\Settings16.png;.\images\SettingsOpen16.png;.\UIElements\Donate.png;.\UIElements\Curves.png;.\images\rotation_DOFs.png;.\images\translation_DOFs.png;.\images\FlightGear.ico;.\images\330px-6DOF_en.png;.\images\Freetrack.ico;.\images\FaceTrackNoIR.ico;.\images\SeeingMachines.ico;.\images\Mouse.ico;.\images\FS9.ico;.\images\FSX.ico;.\images\PPJoy.ico;.\images\TrackIR.ico;.\UIElements\aboutFaceTrackNoIR.png"
+						AdditionalDependencies="$(InputPath)"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -274,7 +274,7 @@
 						Name="VCCustomBuildTool"
 						Description="Rcc&apos;ing $(InputFileName)..."
 						CommandLine="&quot;$(QTDIR)\bin\rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress &quot;$(InputPath)&quot; -o .\GeneratedFiles\qrc_$(InputName).cpp&#x0D;&#x0A;"
-						AdditionalDependencies="$(InputPath);.\images\Settings16.png;.\images\SettingsOpen16.png;.\UIElements\Donate.png;.\UIElements\Curves.png;.\images\rotation_DOFs.png;.\images\translation_DOFs.png;.\images\FlightGear.ico;.\images\330px-6DOF_en.png;.\images\Freetrack.ico;.\images\FaceTrackNoIR.ico;.\images\SeeingMachines.ico;.\images\Mouse.ico;.\images\FS9.ico;.\images\FSX.ico;.\images\PPJoy.ico;.\images\TrackIR.ico;.\UIElements\aboutFaceTrackNoIR.png"
+						AdditionalDependencies="$(InputPath)"
 						Outputs=".\GeneratedFiles\qrc_$(InputName).cpp"
 					/>
 				</FileConfiguration>
@@ -363,7 +363,7 @@
 		/>
 		<Global
 			Name="QtVersion Win32"
-			Value="$(DefaultQtVersion)"
+			Value="4.6.2"
 		/>
 		<Global
 			Name="RccDir"

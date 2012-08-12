@@ -124,7 +124,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;D:\Program Files (x86)\SeeingMachines\FaceTrackingAPI_NC 3.2\API\include&quot;;..\FTNoIR_Tracker_Base"
+				AdditionalIncludeDirectories="&quot;$(SM_API_PATH)\include\&quot;;..\FTNoIR_Tracker_Base"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -146,7 +146,7 @@
 				AdditionalDependencies="smft32.lib user32.lib"
 				OutputFile="..\bin\$(ProjectName).exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;D:\Program Files (x86)\SeeingMachines\FaceTrackingAPI_NC 3.2\API\bin&quot;"
+				AdditionalLibraryDirectories="&quot;C:\Program Files (x86)\SeeingMachines\FaceTrackingAPI_NC 3.2\API\bin&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"

@@ -2,7 +2,6 @@
 *.ncb
 /QFunctionConfigurator/GeneratedFiles
 /QFunctionConfigurator/release
-/bin
 /bin_dbg
 /FTNoIR_Filter_Accela/generatedfiles
 /FTNoIR_Filter_Accela/Release

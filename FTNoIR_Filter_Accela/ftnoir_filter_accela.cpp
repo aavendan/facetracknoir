@@ -4,14 +4,17 @@
  * purpose with or without fee is hereby granted, provided that the above
  * copyright notice and this permission notice appear in all copies.
  */
-#include "ftnoir_filter_Accela.h"
-#include "math.h"
-#include <QDebug>
 #include <windows.h>
+#include <math.h>
+#include <float.h>
+#include "ftnoir_filter_Accela.h"
+#include <QDebug>
+
+using namespace std;
 
 FTNoIR_Filter::FTNoIR_Filter() :
-	functionConfig("Accela-Scaling-Rotation", 4, 8),
-	translationFunctionConfig("Accela-Scaling-Translation", 4, 8)
+	functionConfig("Accela-Scaling-Rotation"),
+	translationFunctionConfig("Accela-Scaling-Translation")
 {
 	//populate the description strings
 	filterFullName = "Accela Filter mkII";
@@ -84,10 +87,10 @@ void FTNoIR_Filter::FilterHeadPoseData(THeadPoseData *current_camera_position, T
 
 	for (i=0;i<6;i++)
 	{
-		if (_isnan(target[i]))
+		if (::_isnan(target[i]))
 			return;
 
-		if (_isnan(prev_output[i]))
+		if (::_isnan(prev_output[i]))
 			return;
 
 		double e2 = target[i];
@@ -121,7 +124,7 @@ void FTNoIR_Filter::FilterHeadPoseData(THeadPoseData *current_camera_position, T
 			output[i] = sum;
 		}
 
-		if (_isnan(output[i]))
+		if (::_isnan(output[i]))
 			return;
 	}
 

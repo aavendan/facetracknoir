@@ -38,6 +38,8 @@
 		20110109 - WVR: Added minimizeTaskBar option added. It is now possible to choose minimized or tray.
 */
 #include "FaceTrackNoIR.h"
+#include <windows.h>
+#include <dshow.h>
 #include "tracker.h"
 //#include "FunctionConfig.h"
 

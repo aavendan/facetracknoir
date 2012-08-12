@@ -44,7 +44,7 @@ QFunctionConfiguratorPlugin::QFunctionConfiguratorPlugin(QObject *parent)
 	initialized = false;
 }
 
-void QFunctionConfiguratorPlugin::initialize(QDesignerFormEditorInterface */*core*/)
+void QFunctionConfiguratorPlugin::initialize(QDesignerFormEditorInterface * /*core*/)
 {
 	if (initialized)
 		return;

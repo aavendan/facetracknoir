@@ -1,5 +1,5 @@
 #include "FaceApp.h"
-#include "windows.h"
+#include <windows.h>
 #include "..\FTNoIR_Protocol_FT\FTTypes.h"
 #include "..\FTNoIR_Protocol_FTIR\FTIRTypes.h"
 #include <QDebug>

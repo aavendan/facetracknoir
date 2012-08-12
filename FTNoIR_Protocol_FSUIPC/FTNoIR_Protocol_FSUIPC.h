@@ -28,7 +28,7 @@
 #ifndef INCLUDED_FSUIPCSERVER_H
 #define INCLUDED_FSUIPCSERVER_H
 
-#include "Windows.h"
+#include <windows.h>
 #include <stdlib.h>
 #include "FSUIPC_User.h"
 

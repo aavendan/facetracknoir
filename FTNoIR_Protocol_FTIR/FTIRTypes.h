@@ -24,7 +24,7 @@
 #ifndef INCLUDED_FTIRTYPES_H
 #define INCLUDED_FTIRTYPES_H
   
-#include "Windows.h" 
+#include <Windows.h>
 #include <tchar.h>
 #include <stdio.h>
 

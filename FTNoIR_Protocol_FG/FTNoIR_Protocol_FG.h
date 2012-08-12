@@ -36,7 +36,7 @@
 #include <QUdpSocket>
 #include <QMessageBox>
 #include <QSettings>
-#include "Windows.h"
+#include <windows.h>
 #include "math.h"
 
 class FTNoIR_Protocol_FG : public IProtocol

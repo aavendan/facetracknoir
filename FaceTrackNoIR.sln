@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupFaceTrackNoIR", "SetupFaceTrackNoIR\SetupFaceTrackNoIR.vdproj", "{95D54F4D-F5E2-4DEC-B517-E32F34312C07}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTNoIR_Tracker_UDP", "FTNoIR_Tracker_UDP\FTNoIR_Tracker_UDP.vcproj", "{A42E7DE9-C1C5-48A2-8FEA-86D31CE3DA31}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTNoIR_Filter_EWMA2", "FTNoIR_Filter_EWMA2\FTNoIR_Filter_EWMA2.vcproj", "{7DD9F1AA-B7C0-4056-AC4A-1501840E6438}"
@@ -28,12 +26,18 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTNoIR_Protocol_MOUSE", "FTNoIR_Protocol_MOUSE\FTNoIR_Protocol_MOUSE.vcproj", "{BD90CC3A-965C-4DAF-8D3D-8AABA455BA9E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FaceTrackNoIR", "FaceTrackNoIR\FaceTrackNoIR.vcproj", "{9DCDB5B9-941E-42F7-AF76-DF794AA3C013}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2527B683-7EFC-4D51-B25A-843668649C54} = {2527B683-7EFC-4D51-B25A-843668649C54}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTNoIR_Tracker_FD", "FTNoIR_Tracker_FD\FTNoIR_Tracker_FD.vcproj", "{0FE16301-240D-42B9-9141-12294BA08AC4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FTNoIR_Filter_Accela", "FTNoIR_Filter_Accela\FTNoIR_Filter_accela.vcproj", "{2212857A-7634-4E30-BA83-539EC70176E6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2527B683-7EFC-4D51-B25A-843668649C54} = {2527B683-7EFC-4D51-B25A-843668649C54}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QFunctionConfigurator", "..\..\..\ftnoir-devel - sm40\QFunctionConfigurator\QFunctionConfigurator.vcproj", "{2527B683-7EFC-4D51-B25A-843668649C54}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QFunctionConfigurator", "QFunctionConfigurator\QFunctionConfigurator.vcproj", "{2527B683-7EFC-4D51-B25A-843668649C54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,8 +45,6 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{95D54F4D-F5E2-4DEC-B517-E32F34312C07}.Debug|Win32.ActiveCfg = Debug
-		{95D54F4D-F5E2-4DEC-B517-E32F34312C07}.Release|Win32.ActiveCfg = Release
 		{A42E7DE9-C1C5-48A2-8FEA-86D31CE3DA31}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A42E7DE9-C1C5-48A2-8FEA-86D31CE3DA31}.Debug|Win32.Build.0 = Debug|Win32
 		{A42E7DE9-C1C5-48A2-8FEA-86D31CE3DA31}.Release|Win32.ActiveCfg = Release|Win32
@@ -112,6 +114,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		QtVersion = QT114
+		QtVersion = 4.6.2
 	EndGlobalSection
 EndGlobal

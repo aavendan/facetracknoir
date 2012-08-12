@@ -29,7 +29,7 @@
 #ifndef INCLUDED_FTTYPES_H
 #define INCLUDED_FTTYPES_H
   
-#include "Windows.h" 
+#include <Windows.h>
 #include <tchar.h>
 #include <stdio.h>
 

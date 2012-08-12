@@ -14,7 +14,7 @@
 #ifndef INCLUDED_FGTYPES_H
 #define INCLUDED_FGTYPES_H
 
-#include "Windows.h" 
+#include <windows.h> 
 
 //
 // x,y,z position in metres, heading, pitch and roll in degrees...

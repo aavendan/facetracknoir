@@ -30,7 +30,7 @@
 #ifndef INCLUDED_MOUSESERVER_H
 #define INCLUDED_MOUSESERVER_H
 
-//#include <Windows.h>
+#include <Windows.h>
 #include "..\ftnoir_protocol_base\ftnoir_protocol_base.h"
 #include "ui_FTNoIR_MOUSEcontrols.h"
 #include <QMessageBox>

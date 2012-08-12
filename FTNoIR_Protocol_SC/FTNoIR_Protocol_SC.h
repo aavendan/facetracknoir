@@ -37,7 +37,7 @@
 #define SIMCONNECT_H_NOMANIFEST 
 #define _WIN32_WINNT 0x0502
 
-#include "Windows.h"
+#include <windows.h>
 #include "SimConnect.h"
 
 #include "..\ftnoir_protocol_base\ftnoir_protocol_base.h"

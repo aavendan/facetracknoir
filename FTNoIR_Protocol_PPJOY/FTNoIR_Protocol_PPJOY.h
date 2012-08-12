@@ -37,7 +37,7 @@
 #include <QProcess>
 #include <QDebug>
 #include <QFile>
-#include "Windows.h"
+#include <windows.h>
 //#include "math.h"
 
 typedef void (WINAPI *importSetPosition)(float x, float y, float z, float xRot, float yRot, float zRot);

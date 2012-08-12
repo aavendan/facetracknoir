@@ -28,7 +28,7 @@
 
 #include "..\ftnoir_filter_base\ftnoir_filter_base.h"
 #include "ui_FTNoIR_FilterControls.h"
-#include <FunctionConfig.h>
+#include <QFunctionConfigurator.h>
 //#include <FunctionEditorFrame.h>
 
 class FTNoIR_Filter : public IFilter

@@ -22,7 +22,7 @@
 * with this program; if not, see <http://www.gnu.org/licenses/>.				*
 *																				*
 ********************************************************************************/
-#include "ftnoir_tracker_sm.h"
+#include <ftnoir_tracker_sm.h>
 #include <QtGui>
 
 FTNoIR_Tracker::FTNoIR_Tracker()

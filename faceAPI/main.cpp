@@ -82,7 +82,7 @@ bool	SMCreateMapping();
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void STDCALL receiveLogMessage(void *, const char *buf, int /*buf_len*/)
+void STDCALL receiveLogMessage(void *, const char *, int /*buf_len*/)
 {
     Lock lock(g_mutex); // serialize logging calls from different threads to avoid garbled output.
     //cout << string(buf);

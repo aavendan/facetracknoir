@@ -24,7 +24,7 @@
 #ifndef FTNOIR_CXX_PROTOCOLSERVER_H
 #define FTNOIR_CXX_PROTOCOLSERVER_H
 
-#include "Windows.h" 
+#include <windows.h> 
 //#include <QThread>
 #include <QObject>
 

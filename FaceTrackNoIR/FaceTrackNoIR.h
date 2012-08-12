@@ -26,6 +26,7 @@
 #define FaceTrackNoIR_H
 
 #include <tchar.h>
+#include <windows.h>
 #include <QtGui/QMainWindow>
 #include <QApplication>
 #include <QFileDialog>
@@ -57,9 +58,6 @@ typedef AutoClosePtr<IProtocolDialog, void, &IProtocolDialog::Release> IProtocol
 typedef IProtocolDialog *(WINAPI *importGetProtocolDialog)(void);
 typedef AutoClosePtr<IFilterDialog, void, &IFilterDialog::Release> IFilterDialogPtr;
 typedef IFilterDialog *(WINAPI *importGetFilterDialog)(void);
-
-
-#include <Dshow.h>
 
 class Tracker;				// pre-define class to avoid circular includes
 

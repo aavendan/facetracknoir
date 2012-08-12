@@ -1,7 +1,7 @@
 #ifndef __PPJIOCTL_H__
 #define __PPJIOCTL_H__
 
-#include "Windows.h" 
+#include <windows.h> 
 
 /* Define to use byte-size values for joystick axes, else dword size */
 #undef UCHAR_AXES

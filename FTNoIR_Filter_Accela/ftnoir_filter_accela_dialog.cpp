@@ -34,8 +34,8 @@
 //
 FilterControls::FilterControls() :
 	QWidget(),
-	functionConfig("Accela-Scaling-Rotation", 4, 8),
-	translationFunctionConfig("Accela-Scaling-Translation", 4, 8)
+	functionConfig("Accela-Scaling-Rotation"),
+	translationFunctionConfig("Accela-Scaling-Translation")
 {
 	ui.setupUi( this );
 

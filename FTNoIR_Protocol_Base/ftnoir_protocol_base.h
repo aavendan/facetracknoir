@@ -30,14 +30,12 @@
 #ifndef FTNOIR_PROTOCOL_BASE_H
 #define FTNOIR_PROTOCOL_BASE_H
 
+#include <windows.h>
 #include "ftnoir_protocol_base_global.h"
 #include "..\ftnoir_tracker_base\ftnoir_tracker_types.h"
 #include <QtGui/QWidget>
 #include <QtGui/QFrame>
 //#include "winbase.h"
-
-#include "windows.h"
-#include "winable.h"
 
 // COM-Like abstract interface.
 // This interface doesn't require __declspec(dllexport/dllimport) specifier.
