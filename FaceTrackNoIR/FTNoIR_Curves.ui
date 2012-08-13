@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>993</width>
-    <height>751</height>
+    <width>1027</width>
+    <height>813</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -119,7 +119,7 @@ color: rgb(255, 255, 255);
            <x>10</x>
            <y>10</y>
            <width>956</width>
-           <height>656</height>
+           <height>677</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout">
@@ -134,13 +134,13 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maxOutputEGU" stdset="0">
@@ -150,7 +150,7 @@ color: rgb(255, 255, 255);
              <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -185,20 +185,20 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>264</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>264</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="pixPerEGU_Input" stdset="0">
              <number>4</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -233,20 +233,20 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="pixPerEGU_Input" stdset="0">
              <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -281,13 +281,13 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>314</width>
-              <height>204</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>314</width>
-              <height>204</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maxOutputEGU" stdset="0">
@@ -350,6 +350,19 @@ color: rgb(255, 255, 255);
             </property>
            </widget>
           </item>
+          <item row="1" column="3">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
         </widget>
        </widget>
@@ -366,7 +379,7 @@ color: rgb(255, 255, 255);
           <rect>
            <x>30</x>
            <y>10</y>
-           <width>956</width>
+           <width>982</width>
            <height>721</height>
           </rect>
          </property>
@@ -376,20 +389,20 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="pixPerEGU_Input" stdset="0">
              <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -418,20 +431,20 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="pixPerEGU_Input" stdset="0">
              <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -460,20 +473,20 @@ color: rgb(255, 255, 255);
             <property name="minimumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>314</width>
-              <height>384</height>
+              <height>235</height>
              </size>
             </property>
             <property name="pixPerEGU_Input" stdset="0">
              <number>5</number>
             </property>
             <property name="pixPerEGU_Output" stdset="0">
-             <number>2</number>
+             <number>1</number>
             </property>
             <property name="colorBezier">
              <color>
@@ -525,6 +538,19 @@ color: rgb(255, 255, 255);
              <string notr="true">image: url(:/images/translation_DOFs.png);</string>
             </property>
            </widget>
+          </item>
+          <item row="0" column="3">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>

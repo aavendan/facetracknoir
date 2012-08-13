@@ -35,7 +35,6 @@
 /release
 /faceAPI/Release
 /*.suo
-
 /bin/*.exp
 /bin/*.lib
 /bin/*.ilk
